@@ -1,14 +1,13 @@
 package com.DevProgress;
 
 
-import com.DevProgress.domain.Customer;
-import com.DevProgress.repository.CustomerRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
+
+import com.DevProgress.domain.Customer;
+import com.DevProgress.repository.CustomerRepository;
 
 @EnableAutoConfiguration
 @ComponentScan
@@ -24,7 +23,7 @@ public class App implements CommandLineRunner {
         customerRepository.save(customer01);   // リポジトリクラスの行挿入メソッドを呼び出す
     }
 
-    public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
-    }
+//    public static void main(String[] args) {
+//        SpringApplication.run(App.class, args);
+//    }
 }

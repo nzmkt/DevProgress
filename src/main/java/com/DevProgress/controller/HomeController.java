@@ -3,7 +3,6 @@ package com.DevProgress.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,9 +50,6 @@ public class HomeController {
 		this.repository.save(item);
 		return "redirect:/";
 	}
-	
-    public static void main(String[] args) {
-        SpringApplication.run(HomeController.class, args);
-    }
+
 	
 }

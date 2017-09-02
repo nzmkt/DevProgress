@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.domain.Customer;
+import com.example.domain.User;
 import com.example.service.CustomerService;
 
 @RestController
@@ -40,17 +41,17 @@ public class CustomerRestController {
     }
 
     @PostMapping
-    ResponseEntity<Customer> postCustomers(@RequestBody Customer customer, UriComponentsBuilder uriBuilder) {
-        Customer created = customerService.create(customer);
+    ResponseEntity<Customer> postCustomers(@RequestBody Customer customer, UriComponentsBuilder uriBuilder, @RequestBody User user) {
+        Customer created = customerService.create(customer, user);
         URI location = uriBuilder.path("api/customers/{id}")
                 .buildAndExpand(created.getId()).toUri();
         return ResponseEntity.created(location).body(created);
     }
 
     @PutMapping(path = "{id}")
-    Customer putCustomer(@PathVariable Integer id, @RequestBody Customer customer) {
+    Customer putCustomer(@PathVariable Integer id, @RequestBody Customer customer, @RequestBody User user) {
         customer.setId(id);
-        return customerService.update(customer);
+        return customerService.update(customer, user);
     }
 
     @DeleteMapping(path = "{id}")

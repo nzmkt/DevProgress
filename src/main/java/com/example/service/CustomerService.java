@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Customer;
+import com.example.domain.User;
 import com.example.repository.CustomerRepository;
 
 @Service
@@ -16,18 +17,20 @@ public class CustomerService {
     CustomerRepository customerRepository;
 
     public List<Customer> findAll() {
-        return customerRepository.findAllOrderByName();
+        return customerRepository.findAllwithUserOrderByName();
     }
 
     public Customer findOne(Integer id) {
         return customerRepository.findOne(id);
     }
 
-    public Customer create(Customer customer) {
+    public Customer create(Customer customer, User user) {
+    	customer.setUser(user);
         return customerRepository.save(customer);
     }
 
-    public Customer update(Customer customer) {
+    public Customer update(Customer customer, User user) {
+    	customer.setUser(user);
         return customerRepository.save(customer);
     }
 

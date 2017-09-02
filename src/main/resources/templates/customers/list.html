@@ -14,7 +14,7 @@
 <div class="container">
 	<h1>顧客管理システム</h1>
 	<p>
-		<span sec:authentication="orincipal.user.username">test</span>さんログイン中
+		<span sec:authentication="principal.user.username">test</span>さんログイン中
 	</p>
 	
 	<form th:action="@{/logout}" method="post">
